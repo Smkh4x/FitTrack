@@ -9,24 +9,24 @@ import { push } from 'expo-router/build/global-state/routing';
 
 export default function dashboard() {
   return (
-<ScrollView>
-    <SafeAreaView style={styles.container}>
-      
-          <AnimatedCircularProgress
-        size={220}
-        width={10}
-        fill={78}
-        tintColor="#2DB7F2"
-        backgroundColor="#e2d2d2"
-      >
-        
-        {(fill: any) => (
-          <View style={styles.CircularCentent}>
-            <Footprints color={'blue'}/>
-               <Text style={{fontSize: 30, fontWeight: 'bold'}}>{fill}</Text>
-               <Text>Steps / 10.000</Text>
-          </View> 
-        )}
+    <ScrollView>
+      <SafeAreaView style={styles.container}>
+
+        <AnimatedCircularProgress
+          size={220}
+          width={10}
+          fill={78}
+          tintColor="#2DB7F2"
+          backgroundColor="#e2d2d2"
+        >
+
+          {(fill: any) => (
+            <View style={styles.CircularCentent}>
+              <Footprints color={'blue'} />
+              <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{fill}</Text>
+              <Text>Steps / 10.000</Text>
+            </View>
+          )}
         </AnimatedCircularProgress>
 
         <View style={styles.cards}>
@@ -35,10 +35,10 @@ export default function dashboard() {
 
             <View style={styles.items}>
               <MapPinPlusInside color={'green'} />
-              <Text style={{color: 'green'}}>Distance</Text>
+              <Text style={{ color: 'green' }}>Distance</Text>
             </View>
             <View style={styles.items}>
-              <Text style={{fontSize: 24, fontWeight: 'bold'}}>5.2</Text>
+              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>5.2</Text>
               <Text>km</Text>
             </View>
 
@@ -47,11 +47,11 @@ export default function dashboard() {
           <View style={styles.card}>
 
             <View style={styles.items}>
-              <Flame  color={'red'}/>
-              <Text style={{color: 'red'}}>Calories</Text>
+              <Flame color={'red'} />
+              <Text style={{ color: 'red' }}>Calories</Text>
             </View>
             <View style={styles.items}>
-              <Text style={{fontSize: 24, fontWeight: 'bold'}}>5.2</Text>
+              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>5.2</Text>
               <Text>km</Text>
             </View>
 
@@ -62,32 +62,32 @@ export default function dashboard() {
         <View style={styles.card2}>
 
           <View style={styles.items}>
-            <Timer  color={'gray'}/>
-            <Text style={{color: 'gray'}}>Activite Time</Text>
+            <Timer color={'gray'} />
+            <Text style={{ color: 'gray' }}>Activite Time</Text>
           </View>
           <View style={styles.items}>
-            <Text style={{fontSize: 24, fontWeight: 'bold'}}>45</Text>
+            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>45</Text>
             <Text>munites totale</Text>
           </View>
 
         </View>
 
         <View style={styles.button}>
-          <TouchableOpacity 
-          style={styles.buttonContent}
-          onPress={() => {
-            push('/start')
+          <TouchableOpacity
+            style={styles.buttonContent}
+            onPress={() => {
+              push('/start')
 
-          }}
+            }}
           >
-            <Play size={18}/>
-            <Text style={{fontWeight: 'bold', fontSize: 16,}}>Start session</Text>
+            <Play size={18} />
+            <Text style={{ fontWeight: 'bold', fontSize: 16, }}>Start session</Text>
           </TouchableOpacity>
         </View>
-        
-   
-    </SafeAreaView>
-       </ScrollView>
+
+
+      </SafeAreaView>
+    </ScrollView>
   )
 }
 
@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
   CircularCentent: {
     justifyContent: 'center',
     alignItems: 'center',
-    
+
 
   },
   cards: {
@@ -109,9 +109,9 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap',
     marginTop: 30,
     gap: 10,
-      
-   },
-   card: {
+
+  },
+  card: {
     width: '48%',
     height: 120,
     padding: 20,
@@ -120,8 +120,8 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     borderRadius: 10,
     elevation: 5,
-   },
-   card2: {
+  },
+  card2: {
     width: '100%',
     height: 120,
     padding: 20,
@@ -131,26 +131,26 @@ const styles = StyleSheet.create({
     borderRadius: 10,
     elevation: 5,
 
-   },
-   items: {
+  },
+  items: {
     gap: 4,
     flexDirection: 'row',
     alignItems: 'center',
 
-   },
-   button: {
+  },
+  button: {
     backgroundColor: '#2DB7F2',
     width: '100%',
     height: 60,
     borderRadius: 20,
     top: 20,
 
-   },
-   buttonContent: {
+  },
+  buttonContent: {
     alignItems: 'center',
     flex: 1,
     justifyContent: 'center',
     flexDirection: 'row',
     gap: 8,
-   }
+  }
 })

@@ -1,6 +1,6 @@
 import { Tabs } from "expo-router";
 import { StyleSheet, TouchableOpacity, View } from "react-native";
-import {History, Home, User} from "lucide-react-native"
+import { History, Home, User } from "lucide-react-native"
 
 export default function _layout() {
   return (
@@ -14,50 +14,50 @@ export default function _layout() {
         headerLeft: () => (
           <View style={{ marginLeft: 15 }}>
             <TouchableOpacity onPress={() => console.log("Go to profile")}>
-            <View style={{backgroundColor: '#2DB7F2', width: 35, height: 35, borderRadius: '100%',}}>
+              <View style={{ backgroundColor: '#2DB7F2', width: 35, height: 35, borderRadius: '100%', }}>
 
-            </View>
+              </View>
             </TouchableOpacity>
           </View>
         ),
       }}
     >
       <Tabs.Screen
-      name="dashboard"
-      options={{
-        title: 'home',
-        tabBarIcon: ({ color, size }) => (
-          <Home color={color} size={size}/>
-        )
-      }}
+        name="dashboard"
+        options={{
+          title: 'home',
+          tabBarIcon: ({ color, size }) => (
+            <Home color={color} size={size} />
+          )
+        }}
       />
-            <Tabs.Screen
-      name="history"
-      options={{
-        title: 'History',
-        tabBarIcon: ({ color, size }) => (
-          <History  color={color} size={size}/>
-        )
-      }}
+      <Tabs.Screen
+        name="history"
+        options={{
+          title: 'History',
+          tabBarIcon: ({ color, size }) => (
+            <History color={color} size={size} />
+          )
+        }}
       />
-                  <Tabs.Screen
-      name="profile"
-      options={{
-        title: 'profile',
-        tabBarIcon: ({ color, size }) => (
-          <User color={color} size={size}/>
-        )
-      }}
+      <Tabs.Screen
+        name="profile"
+        options={{
+          title: 'profile',
+          tabBarIcon: ({ color, size }) => (
+            <User color={color} size={size} />
+          )
+        }}
       />
-    <Tabs.Screen 
-    name="start"
-    options={{
-      href: null,
-    }}
-    />
+      <Tabs.Screen
+        name="start"
+        options={{
+          href: null,
+        }}
+      />
 
 
-      </Tabs>
+    </Tabs>
 
   );
 };
