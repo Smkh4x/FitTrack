@@ -1,109 +1,126 @@
-import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
-import { CirclePause, CircleStop, Flame, Footprints, MapPinPlusInside, Timer } from 'lucide-react-native'
+import { CirclePause, CircleStop, Flame, MapPinPlusInside, Pause, Timer } from 'lucide-react-native'
+import { push } from 'expo-router/build/global-state/routing'
 
 export default function start() {
     return (
-        <View style={styles.container}>
-            <AnimatedCircularProgress
-                size={220}
-                width={10}
-                fill={78}
-                tintColor="#2DB7F2"
-                backgroundColor="#e2d2d2"
-            >
+        <ScrollView >
+            <View style={styles.container}>
+                <AnimatedCircularProgress
+                    size={220}
+                    width={10}
+                    fill={78}
+                    tintColor="#2DB7F2"
+                    backgroundColor="#e2d2d2"
+                >
 
-                {() => (
-                    <View style={styles.CircularCentent}>
+                    {() => (
+                        <View style={styles.CircularCentent}>
 
-                        <Text style={{ fontSize: 50, fontWeight: 'bold' }}>22:23</Text>
+                            <Text style={{ fontSize: 50, fontWeight: 'bold' }}>22:23</Text>
+
+                        </View>
+                    )}
+                </AnimatedCircularProgress>
+
+                <View style={styles.cards}>
+
+                    <View style={styles.card}>
+
+                        <View style={styles.items}>
+                            <MapPinPlusInside color={'green'} />
+                            <Text style={{ color: 'green' }}>Distance</Text>
+                        </View>
+                        <View style={styles.items}>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>8.2</Text>
+                            <Text>km</Text>
+                        </View>
 
                     </View>
-                )}
-            </AnimatedCircularProgress>
 
-            <View style={styles.cards}>
+                    <View style={styles.card}>
 
-                <View style={styles.card}>
+                        <View style={styles.items}>
+                            <Timer color={'gray'} />
 
-                    <View style={styles.items}>
-                        <MapPinPlusInside color={'green'} />
-                        <Text style={{ color: 'green' }}>Distance</Text>
+                            <Text style={{ color: 'gray' }}>avg/pace</Text>
+                        </View>
+                        <View style={styles.items}>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>522</Text>
+                            <Text>min/km</Text>
+                        </View>
+
                     </View>
-                    <View style={styles.items}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>8.2</Text>
-                        <Text>km</Text>
+
+                    <View style={styles.card}>
+
+                        <View style={styles.items}>
+                            <Flame color={'red'} />
+                            <Text style={{ color: 'red' }}>Energy/Bum</Text>
+                        </View>
+                        <View style={styles.items}>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>423</Text>
+                            <Text>kcal</Text>
+                        </View>
+
+                    </View>
+
+                    <View style={styles.card}>
+
+                        <View style={styles.items}>
+                            <Flame color={'red'} />
+                            <Text style={{ color: 'red' }}>Elevation</Text>
+                        </View>
+                        <View style={styles.items}>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>122</Text>
+                            <Text>m</Text>
+                        </View>
+
+                    </View>
+
+                    <View style={styles.card2}>
+                        <TouchableOpacity style={{ alignItems: 'center' }}>
+                            <CirclePause />
+                            <Text style={{ fontWeight: 'bold' }}>Pause</Text>
+                        </TouchableOpacity>
+
+
+                    </View>
+
+                    <View style={styles.card2}>
+                        <TouchableOpacity style={{ alignItems: 'center' }}>
+                            <CircleStop color={'red'} />
+                            <Text style={{ color: 'red', fontWeight: 'bold' }}>Stop</Text>
+                        </TouchableOpacity>
+
+
                     </View>
 
                 </View>
+                <View style={styles.button}>
+                    <TouchableOpacity
+                        style={styles.buttonContent}
+                        onPress={() => {
+                            push('/dashboard')
 
-                <View style={styles.card}>
-
-                    <View style={styles.items}>
-                        <Timer color={'gray'} />
-
-                        <Text style={{ color: 'gray' }}>avg/pace</Text>
-                    </View>
-                    <View style={styles.items}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>522</Text>
-                        <Text>min/km</Text>
-                    </View>
-
-                </View>
-
-                <View style={styles.card}>
-
-                    <View style={styles.items}>
-                        <Flame color={'red'} />
-                        <Text style={{ color: 'red' }}>Energy/Bum</Text>
-                    </View>
-                    <View style={styles.items}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>423</Text>
-                        <Text>kcal</Text>
-                    </View>
-
-                </View>
-
-                <View style={styles.card}>
-
-                    <View style={styles.items}>
-                        <Flame color={'red'} />
-                        <Text style={{ color: 'red' }}>Elevation</Text>
-                    </View>
-                    <View style={styles.items}>
-                        <Text style={{ fontSize: 24, fontWeight: 'bold' }}>122</Text>
-                        <Text>m</Text>
-                    </View>
-
-                </View>
-
-                <View style={styles.card2}>
-                    <TouchableOpacity style={{ alignItems: 'center'}}>
-                        <CirclePause />
-                       <Text style={{ fontWeight: 'bold' }}>Pause</Text> 
+                        }}
+                    >
+                        <Pause size={18} />
+                        <Text style={{ fontWeight: 'bold', fontSize: 16, }}>Resume Workout</Text>
                     </TouchableOpacity>
-                    
-
                 </View>
-
-                <View style={styles.card2}>
-                    <TouchableOpacity  style={{ alignItems: 'center'}}>
-                        <CircleStop color={'red'} />
-                        <Text style={{ color: 'red', fontWeight: 'bold' }}>Stop</Text>
-                    </TouchableOpacity>
-                    
-
-                </View>
-
+                
             </View>
-        </View>
+        </ScrollView>
+
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-        top: 40,
+
         alignItems: 'center'
     },
     CircularCentent: {
@@ -122,7 +139,7 @@ const styles = StyleSheet.create({
     },
     card: {
         width: '48%',
-        height: 120,
+        height: 100,
         padding: 20,
         gap: 8,
         backgroundColor: 'white',
@@ -148,5 +165,20 @@ const styles = StyleSheet.create({
         alignItems: 'center',
 
     },
+    button: {
+        backgroundColor: '#2DB7F2',
+        width: '100%',
+        height: 60,
+        borderRadius: 20,
+        top: 20,
+
+    },
+    buttonContent: {
+        alignItems: 'center',
+        flex: 1,
+        justifyContent: 'center',
+        flexDirection: 'row',
+        gap: 8,
+    }
 
 })

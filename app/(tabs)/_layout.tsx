@@ -8,7 +8,8 @@ export default function _layout() {
       screenOptions={{
         headerTitle: "Fitness Tracker",
         headerTitleStyle: {
-          color: "#2DB7F2",
+          color: "#000000",
+          fontWeight: 'bold',
         },
 
         headerLeft: () => (

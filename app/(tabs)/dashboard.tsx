@@ -81,7 +81,7 @@ export default function dashboard() {
             }}
           >
             <Play size={18} />
-            <Text style={{ fontWeight: 'bold', fontSize: 16, }}>Start session</Text>
+            <Text style={{ fontWeight: 'bold', fontSize: 18, }}>Start session</Text>
           </TouchableOpacity>
         </View>
 
