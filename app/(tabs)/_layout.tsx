@@ -1,15 +1,16 @@
 import { Tabs } from "expo-router";
-import { StyleSheet, TouchableOpacity, View } from "react-native";
-import { History, Home, User } from "lucide-react-native"
+import { TouchableOpacity, View } from "react-native";
+import { Home, User } from "lucide-react-native"
 
 export default function _layout() {
   return (
     <Tabs
       screenOptions={{
+        headerShown: false,
         headerTitle: "Fitness Tracker",
         headerTitleStyle: {
           color: "#000000",
-          fontWeight: 'bold',
+          fontWeight: 'normal',
         },
 
         headerLeft: () => (
@@ -29,15 +30,6 @@ export default function _layout() {
           title: 'home',
           tabBarIcon: ({ color, size }) => (
             <Home color={color} size={size} />
-          )
-        }}
-      />
-      <Tabs.Screen
-        name="history"
-        options={{
-          title: 'History',
-          tabBarIcon: ({ color, size }) => (
-            <History color={color} size={size} />
           )
         }}
       />
@@ -62,7 +54,3 @@ export default function _layout() {
 
   );
 };
-
-const styles = StyleSheet.create({
-
-})

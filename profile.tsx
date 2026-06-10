@@ -1,20 +1,16 @@
-import { ScrollView, StyleSheet, Text, View } from 'react-native'
+import { Flame, PersonStanding, Timer, UserRound } from 'lucide-react-native'
 import React from 'react'
-import { Flame, PersonStanding, Timer } from 'lucide-react-native'
+import { StyleSheet, Text, View } from 'react-native'
 
-export default function history() {
+export default function profile() {
   return (
-    <ScrollView>
-      <View style={styles.headerText}>
-        <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Youssef Almona</Text>
-        <Text style={{ fontWeight: 'medium' }}>Premium Member since Jan 2024</Text>
+    <View style={{alignItems: 'center', padding: 20}}>
+      <View style={styles.container}> <UserRound  color={'black'} size={100} /></View>
 
-      </View>
+      <Text style={styles.text}>Youssef Al mona</Text>
 
-
-
-      <View style={{ padding: 20, gap: 18 }}>
-        <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Activity History</Text>
+            <View style={{ top: 40, gap: 18 }}>
+        <Text style={{ fontWeight: 'bold', fontSize: 18 }}>History</Text>
 
         <View style={styles.card}>
 
@@ -24,7 +20,7 @@ export default function history() {
 
             <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Morning Trail Run</Text>
 
-            <View style={{ flexDirection: 'row' }}>
+            <View style={{ flexDirection: 'row', gap: 4 }}>
 
               <Timer color={'green'} size={16} />
               <Text style={{ color: 'green' }}>45m</Text>
@@ -37,31 +33,29 @@ export default function history() {
 
         </View>
 
-
-
-
-
       </View>
-
-    </ScrollView>
-
+    </View>
   )
 }
 
 const styles = StyleSheet.create({
-  headerText: {
-    flex: 1,
-    alignItems: 'center',
-    padding: 20,
+  container: {
+    backgroundColor: '#2DB7F2',
+    borderRadius: 110,
+    borderWidth: 4,
 
   },
-
+  text: {
+    fontWeight: 'bold',
+    fontSize: 20,
+    top: 10,
+  },
   card: {
     width: '100%',
     height: 80,
     backgroundColor: 'white',
     borderRadius: 8,
-    elevation: 5,
+    borderWidth: 0.8,
     padding: 8,
     flexDirection: 'row',
     alignItems: 'center',
@@ -70,7 +64,7 @@ const styles = StyleSheet.create({
   },
   cardDetails: {
     flex: 1,
+    gap: 4,
 
   }
-
 })

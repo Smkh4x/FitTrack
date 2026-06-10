@@ -1,12 +1,13 @@
-import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from 'react-native'
+import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { CirclePause, CircleStop, Flame, MapPinPlusInside, Pause, Timer } from 'lucide-react-native'
 import { push } from 'expo-router/build/global-state/routing'
+import { SafeAreaView } from 'react-native-safe-area-context'
 
 export default function start() {
     return (
-        <ScrollView >
+        <SafeAreaView >
             <View style={styles.container}>
                 <AnimatedCircularProgress
                     size={220}
@@ -111,16 +112,16 @@ export default function start() {
                         <Text style={{ fontWeight: 'bold', fontSize: 16, }}>Resume Workout</Text>
                     </TouchableOpacity>
                 </View>
-                
+
             </View>
-        </ScrollView>
+        </SafeAreaView>
 
     )
 }
 
 const styles = StyleSheet.create({
     container: {
-
+        padding: 20,
         alignItems: 'center'
     },
     CircularCentent: {

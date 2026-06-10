@@ -3,7 +3,6 @@ import { AnimatedCircularProgress } from "react-native-circular-progress";
 import React from 'react'
 import { Flame, Footprints, MapPinPlusInside, Play, Timer } from 'lucide-react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { router } from 'expo-router';
 import { push } from 'expo-router/build/global-state/routing';
 
 
@@ -15,7 +14,7 @@ export default function dashboard() {
         <AnimatedCircularProgress
           size={220}
           width={10}
-          fill={78}
+          fill={80}
           tintColor="#2DB7F2"
           backgroundColor="#e2d2d2"
         >
@@ -67,7 +66,7 @@ export default function dashboard() {
           </View>
           <View style={styles.items}>
             <Text style={{ fontSize: 24, fontWeight: 'bold' }}>45</Text>
-            <Text>munites totale</Text>
+            <Text>Munites totale</Text>
           </View>
 
         </View>
