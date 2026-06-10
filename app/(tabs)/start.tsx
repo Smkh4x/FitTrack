@@ -1,29 +1,31 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
-import React from 'react'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { CirclePause, CircleStop, Flame, Footprints, MapPinPlusInside, Pause, Timer } from 'lucide-react-native'
 import { push } from 'expo-router/build/global-state/routing'
 import { SafeAreaView } from 'react-native-safe-area-context'
+import { fitnesStore } from '@/store/fitnesStore'
+
 
 export default function start() {
+    const { km, kcal, steps } = fitnesStore();
     return (
         <SafeAreaView >
             <View style={styles.container}>
                 <AnimatedCircularProgress
                     size={220}
                     width={10}
-                    fill={78}
+                    fill={0}
                     tintColor="#2DB7F2"
                     backgroundColor="#e2d2d2"
                 >
-
                     {() => (
                         <View style={styles.CircularCentent}>
-
-                            <Text style={{ fontSize: 50, fontWeight: 'bold' }}>22:23</Text>
+                            <Text style={{ fontSize: 50, fontWeight: 'bold' }}>00:00</Text>
 
                         </View>
+
                     )}
+
                 </AnimatedCircularProgress>
 
                 <View style={styles.cards}>
@@ -35,7 +37,7 @@ export default function start() {
                             <Text style={{ color: 'green' }}>Distance</Text>
                         </View>
                         <View style={styles.items}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>8.2</Text>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{km.toFixed(2)}</Text>
                             <Text>km</Text>
                         </View>
 
@@ -49,7 +51,7 @@ export default function start() {
                             <Text style={{ color: 'gray' }}>avg/pace</Text>
                         </View>
                         <View style={styles.items}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>522</Text>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>0</Text>
                             <Text>min/km</Text>
                         </View>
 
@@ -62,7 +64,7 @@ export default function start() {
                             <Text style={{ color: 'red' }}>Energy/Bum</Text>
                         </View>
                         <View style={styles.items}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>423</Text>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{kcal}</Text>
                             <Text>kcal</Text>
                         </View>
 
@@ -75,8 +77,8 @@ export default function start() {
                             <Text style={{ color: '#2DB7F2' }}> Steps</Text>
                         </View>
                         <View style={styles.items}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>122</Text>
-                            <Text>m</Text>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{steps}</Text>
+
                         </View>
 
                     </View>
@@ -89,15 +91,13 @@ export default function start() {
 
 
                     </View>
-
+                    {/*
                     <View style={styles.card2}>
                         <TouchableOpacity style={{ alignItems: 'center' }}>
                             <CircleStop color={'red'} />
                             <Text style={{ color: 'red', fontWeight: 'bold' }}>Stop</Text>
                         </TouchableOpacity>
-
-
-                    </View>
+                    </View>*/}
 
                 </View>
                 <View style={styles.button}>
@@ -108,8 +108,8 @@ export default function start() {
 
                         }}
                     >
-                        <Pause size={18} />
-                        <Text style={{ fontWeight: 'bold', fontSize: 16, }}>Resume Workout</Text>
+                        <CircleStop color={'red'} size={18} />
+                        <Text style={{ fontWeight: 'bold', fontSize: 16, }}>Stop session</Text>
                     </TouchableOpacity>
                 </View>
 
@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
         backgroundColor: 'white',
         marginBottom: 10,
         borderRadius: 10,
-        elevation: 5,
+
     },
     card2: {
         flex: 1,

@@ -4,18 +4,18 @@ import React from 'react'
 import { Flame, Footprints, MapPinPlusInside, Play, Timer } from 'lucide-react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { push } from 'expo-router/build/global-state/routing';
-
+import { fitnesStore } from '@/store/fitnesStore'
 
 export default function dashboard() {
+  const {steps, km , kcal} = fitnesStore();
   return (
     <ScrollView >
       <SafeAreaView style={styles.container}>
 
-
         <AnimatedCircularProgress
           size={220}
           width={10}
-          fill={80}
+          fill={0}
           tintColor="#2DB7F2"
           backgroundColor="#e2d2d2"
         >
@@ -23,7 +23,7 @@ export default function dashboard() {
           {(fill: any) => (
             <View style={styles.CircularCentent}>
               <Footprints color={'#2DB7F2'} />
-              <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{fill}</Text>
+              <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{steps}</Text>
               <Text>Steps / 10.000</Text>
             </View>
           )}
@@ -38,7 +38,7 @@ export default function dashboard() {
               <Text style={{ color: 'green' }}>Distance</Text>
             </View>
             <View style={styles.items}>
-              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>5.2</Text>
+              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{km.toFixed(2)}</Text>
               <Text>km</Text>
             </View>
 
@@ -51,8 +51,8 @@ export default function dashboard() {
               <Text style={{ color: 'red' }}>Calories</Text>
             </View>
             <View style={styles.items}>
-              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>5.2</Text>
-              <Text>km</Text>
+              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{kcal.toFixed(0)}</Text>
+              <Text>kcal</Text>
             </View>
 
           </View>
@@ -66,7 +66,7 @@ export default function dashboard() {
             <Text style={{ color: 'gray' }}>Activite Time</Text>
           </View>
           <View style={styles.items}>
-            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>45</Text>
+            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>0</Text>
             <Text>Munites totale</Text>
           </View>
 
@@ -80,7 +80,7 @@ export default function dashboard() {
 
             }}
           >
-            <Play size={18} />
+            <Play color={'green'} size={18} />
             <Text style={{ fontWeight: 'bold', fontSize: 18, }}>Start session</Text>
           </TouchableOpacity>
         </View>
@@ -120,7 +120,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginBottom: 10,
     borderRadius: 10,
-    elevation: 5,
+
   },
   card2: {
     width: '100%',
@@ -130,7 +130,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'white',
     marginBottom: 10,
     borderRadius: 10,
-    elevation: 5,
+
 
   },
   items: {
