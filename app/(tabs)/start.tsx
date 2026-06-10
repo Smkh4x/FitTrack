@@ -1,7 +1,7 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import React from 'react'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
-import { CirclePause, CircleStop, Flame, MapPinPlusInside, Pause, Timer } from 'lucide-react-native'
+import { CirclePause, CircleStop, Flame, Footprints, MapPinPlusInside, Pause, Timer } from 'lucide-react-native'
 import { push } from 'expo-router/build/global-state/routing'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
@@ -71,8 +71,8 @@ export default function start() {
                     <View style={styles.card}>
 
                         <View style={styles.items}>
-                            <Flame color={'red'} />
-                            <Text style={{ color: 'red' }}>Elevation</Text>
+                            <Footprints color={'#2DB7F2'} />
+                            <Text style={{ color: '#2DB7F2' }}> Steps</Text>
                         </View>
                         <View style={styles.items}>
                             <Text style={{ fontSize: 24, fontWeight: 'bold' }}>122</Text>

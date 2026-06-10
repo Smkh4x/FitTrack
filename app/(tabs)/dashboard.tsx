@@ -8,8 +8,9 @@ import { push } from 'expo-router/build/global-state/routing';
 
 export default function dashboard() {
   return (
-    <ScrollView>
+    <ScrollView >
       <SafeAreaView style={styles.container}>
+
 
         <AnimatedCircularProgress
           size={220}
@@ -21,7 +22,7 @@ export default function dashboard() {
 
           {(fill: any) => (
             <View style={styles.CircularCentent}>
-              <Footprints color={'blue'} />
+              <Footprints color={'#2DB7F2'} />
               <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{fill}</Text>
               <Text>Steps / 10.000</Text>
             </View>
@@ -95,6 +96,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     padding: 20,
+    
   },
   CircularCentent: {
     justifyContent: 'center',

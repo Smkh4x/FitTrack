@@ -1,28 +1,44 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { ImageBackground, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
 import { Flame, PersonStanding, Timer, UserRound } from 'lucide-react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
 
-export default function history() {
-  return (
-    <SafeAreaView>
-      <View style={styles.headerText}>
 
-        <View style={styles.container}>
-          <UserRound color={'black'} size={100} />
+
+export default function history() {
+
+  return (
+    
+    <SafeAreaView >
+
+
+        <ImageBackground 
+        style={styles.headerText}
+              source={require("../../assets/imgs/imgsport.jpg")}
+      resizeMode="cover"
+      borderBottomLeftRadius={10}
+      borderBottomRightRadius={10}
+      blurRadius={4}
+
+        >
+                 <View style={styles.container}>
+          <UserRound color={'white'} size={100} />
         </View>
 
-        <Text style={{ fontSize: 30, fontWeight: 'bold' }}>Youssef Almona</Text>
-        <Text style={{ fontWeight: 'medium' }}>Premium Member since Jan 2024</Text>
+        <Text style={{ fontSize: 30, fontWeight: 'bold' , color: 'white' }}>Youssef Almona</Text>
+        <Text style={{ fontWeight: 'medium',color: 'white' }}>Premium Member since Jan 2024</Text> 
+        </ImageBackground>
 
-      </View>
+
+
+
 
       <View style={{ padding: 20, gap: 18 }}>
         <Text style={{ fontWeight: 'bold', fontSize: 18 }}>Activity History</Text>
 
         <View style={styles.card}>
 
-          <PersonStanding size={40} style={{ backgroundColor: '#b9e0ff', borderRadius: 8 }} />
+          <PersonStanding size={40} style={{ backgroundColor: '#2DB7F2', borderRadius: 8 }} />
 
           <View style={styles.cardDetails}>
 
@@ -56,11 +72,16 @@ const styles = StyleSheet.create({
   headerText: {
     alignItems: 'center',
     padding: 20,
+    backgroundColor: '#c9e7f3',
+    
+    borderBottomLeftRadius: 30,
+    borderBottomRightRadius: 30,
 
   },
   container: {
     backgroundColor: '#2DB7F2',
     borderRadius: 110,
+    borderColor: 'white',
     borderWidth: 4,
 
   },
