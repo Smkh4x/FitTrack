@@ -1,27 +1,14 @@
 import { create } from 'zustand'
 
-type FitnesState = {
-  steps: number;
-  km: number;
-  kcal: number;
 
-  updateStats:(steps: number) => void
-  
-};
-
-
-export const fitnesStore = create<FitnesState>((set) => ({
+export const fitnesStore = create((set) => ({
   steps: 0,
-  km: 0,
-  kcal: 0,
+  goalSteps: 10000,
 
-  updateStats: (steps) => set({
-    steps,
-    km: steps * 0.0008,
-    kcal: steps * 0.04
-  }),
-
-}));
+  setSteps: (steps: any) => {
+    set({steps})
+  }
+}))
 
 
 

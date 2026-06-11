@@ -5,7 +5,7 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 
 
 
-export default function history() {
+export default function profile() {
 
   return (
 

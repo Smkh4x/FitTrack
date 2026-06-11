@@ -1,24 +1,25 @@
 import { StyleSheet, Text, TouchableOpacity, View } from 'react-native'
 import { AnimatedCircularProgress } from 'react-native-circular-progress'
-import { CirclePause, CircleStop, Flame, Footprints, MapPinPlusInside, Pause, Timer } from 'lucide-react-native'
+import { CirclePause, CircleStop, Flame, Footprints, MapPinPlusInside, Timer } from 'lucide-react-native'
 import { push } from 'expo-router/build/global-state/routing'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { fitnesStore } from '@/store/fitnesStore'
 
 
 export default function start() {
-    const { km, kcal, steps } = fitnesStore();
+    const steps = fitnesStore((state: any) => state.steps);
+    
     return (
         <SafeAreaView >
             <View style={styles.container}>
                 <AnimatedCircularProgress
                     size={220}
                     width={10}
-                    fill={0}
+                    fill={30}
                     tintColor="#2DB7F2"
                     backgroundColor="#e2d2d2"
                 >
-                    {() => (
+                    {(fill: any) => (
                         <View style={styles.CircularCentent}>
                             <Text style={{ fontSize: 50, fontWeight: 'bold' }}>00:00</Text>
 
@@ -37,7 +38,7 @@ export default function start() {
                             <Text style={{ color: 'green' }}>Distance</Text>
                         </View>
                         <View style={styles.items}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{km.toFixed(2)}</Text>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>0.00</Text>
                             <Text>km</Text>
                         </View>
 
@@ -64,7 +65,7 @@ export default function start() {
                             <Text style={{ color: 'red' }}>Energy/Bum</Text>
                         </View>
                         <View style={styles.items}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{kcal}</Text>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>0</Text>
                             <Text>kcal</Text>
                         </View>
 

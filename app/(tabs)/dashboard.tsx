@@ -4,10 +4,10 @@ import React from 'react'
 import { Flame, Footprints, MapPinPlusInside, Play, Timer } from 'lucide-react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { push } from 'expo-router/build/global-state/routing';
-import { fitnesStore } from '@/store/fitnesStore'
+//import { fitnesStore } from '@/store/fitnesStore'
 
 export default function dashboard() {
-  const {steps, km , kcal} = fitnesStore();
+
   return (
     <ScrollView >
       <SafeAreaView style={styles.container}>
@@ -15,15 +15,15 @@ export default function dashboard() {
         <AnimatedCircularProgress
           size={220}
           width={10}
-          fill={0}
+          fill={323 / 10000 * 100} // had l3amalia bx kn7sbo nisbat khotowat mo9arana b 10,000
           tintColor="#2DB7F2"
           backgroundColor="#e2d2d2"
         >
 
-          {(fill: any) => (
+          {() => (
             <View style={styles.CircularCentent}>
               <Footprints color={'#2DB7F2'} />
-              <Text style={{ fontSize: 30, fontWeight: 'bold' }}>{steps}</Text>
+              <Text style={{ fontSize: 30, fontWeight: 'bold' }}>1000</Text>
               <Text>Steps / 10.000</Text>
             </View>
           )}
@@ -38,7 +38,7 @@ export default function dashboard() {
               <Text style={{ color: 'green' }}>Distance</Text>
             </View>
             <View style={styles.items}>
-              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{km.toFixed(2)}</Text>
+              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>0.00</Text>
               <Text>km</Text>
             </View>
 
@@ -51,7 +51,7 @@ export default function dashboard() {
               <Text style={{ color: 'red' }}>Calories</Text>
             </View>
             <View style={styles.items}>
-              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{kcal.toFixed(0)}</Text>
+              <Text style={{ fontSize: 24, fontWeight: 'bold' }}>0</Text>
               <Text>kcal</Text>
             </View>
 
