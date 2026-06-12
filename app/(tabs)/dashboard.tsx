@@ -4,9 +4,10 @@ import React from 'react'
 import { Flame, Footprints, MapPinPlusInside, Play, Timer } from 'lucide-react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { push } from 'expo-router/build/global-state/routing';
-//import { fitnesStore } from '@/store/fitnesStore'
+import { fitnesStore } from '@/store/fitnesStore'
 
 export default function dashboard() {
+  const startTime = fitnesStore((state: any) => state.startTime) 
 
   return (
     <ScrollView >
@@ -76,6 +77,7 @@ export default function dashboard() {
           <TouchableOpacity
             style={styles.buttonContent}
             onPress={() => {
+              startTime();
               push('/start')
 
             }}

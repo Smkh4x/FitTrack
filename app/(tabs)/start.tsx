@@ -3,12 +3,14 @@ import { AnimatedCircularProgress } from 'react-native-circular-progress'
 import { CirclePause, CircleStop, Flame, Footprints, MapPinPlusInside, Timer } from 'lucide-react-native'
 import { push } from 'expo-router/build/global-state/routing'
 import { SafeAreaView } from 'react-native-safe-area-context'
+
 import { fitnesStore } from '@/store/fitnesStore'
 
 
 export default function start() {
-    const steps = fitnesStore((state: any) => state.steps);
-    
+    const time  = fitnesStore((state: any) => state.time)
+
+
     return (
         <SafeAreaView >
             <View style={styles.container}>
@@ -21,7 +23,7 @@ export default function start() {
                 >
                     {(fill: any) => (
                         <View style={styles.CircularCentent}>
-                            <Text style={{ fontSize: 50, fontWeight: 'bold' }}>00:00</Text>
+                            <Text style={{ fontSize: 50, fontWeight: 'bold' }}>{time}</Text>
 
                         </View>
 
@@ -78,7 +80,7 @@ export default function start() {
                             <Text style={{ color: '#2DB7F2' }}> Steps</Text>
                         </View>
                         <View style={styles.items}>
-                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>{steps}</Text>
+                            <Text style={{ fontSize: 24, fontWeight: 'bold' }}>0</Text>
 
                         </View>
 
