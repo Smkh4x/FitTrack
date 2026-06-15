@@ -4,7 +4,9 @@ import { create } from 'zustand'
 export const fitnesStore = create((set) => ({
 
 second: 0,
+Sreps: 0,
 isRunning: false,
+
 
 startTime: () => {
   console.log('ana bditt wii')
@@ -18,6 +20,11 @@ startTime: () => {
     console.log(interval)
   }, 1000)
 
+},
+
+stopAction: () => {
+  console.log("raha db stoped");
+  set({isRunning: false})
 },
 
 }));

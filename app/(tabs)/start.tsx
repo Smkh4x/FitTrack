@@ -8,7 +8,11 @@ import { fitnesStore } from '@/store/fitnesStore'
 
 
 export default function start() {
-    const time  = fitnesStore((state: any) => state.time)
+    const stopAction = fitnesStore((state: any) => state.stopAction)
+    const second = fitnesStore((state: any) => state.second);
+
+    const minutes = Math.floor(second / 60);
+    const seconds = second % 60;
 
 
     return (
@@ -23,7 +27,10 @@ export default function start() {
                 >
                     {(fill: any) => (
                         <View style={styles.CircularCentent}>
-                            <Text style={{ fontSize: 50, fontWeight: 'bold' }}>{time}</Text>
+                            <Text style={{ fontSize: 50, fontWeight: 'bold' }}>
+                                {String(minutes).padStart(2, '0')}:
+                                {String(seconds).padStart(2, '0')}
+                            </Text>
 
                         </View>
 
@@ -87,7 +94,11 @@ export default function start() {
                     </View>
 
                     <View style={styles.card2}>
-                        <TouchableOpacity style={{ alignItems: 'center' }}>
+                        <TouchableOpacity onPress={() => {
+                            stopAction();
+                        }
+                        }
+                            style={{ alignItems: 'center' }}>
                             <CirclePause />
                             <Text style={{ fontWeight: 'bold' }}>Pause</Text>
                         </TouchableOpacity>
